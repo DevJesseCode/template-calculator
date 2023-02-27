@@ -1,0 +1,138 @@
+body{
+	border-width: 0px;
+	margin: 0% 1%;
+	font-family: Montserrat;
+	background-color: yellow;
+}
+
+.container{
+	width: 40vw;
+	border: 5px solid black;
+	margin-top: 1vw;
+	border-radius: 30px;
+}
+
+.calcContainer{
+	margin-right: 10px;
+}
+
+.historyHeading{
+	margin: 8px 0px 0px 8px;
+	font-family: Comic Sans MS;
+}
+
+#mainContainer{
+	display: flex;
+}
+
+.title{
+	margin: 8px 0px 20px 8px;
+	line-height: 0.9;
+}
+
+.author{
+	 font-family: Century Gothic;
+	 margin: -25px 2px 25px 0px
+}
+
+div.calculator{
+	background-color: #dadada;
+	border-radius: 10px;
+	width: 35vw;
+	margin: 0px auto 30px auto;
+}
+
+.display{
+	font-family: Montserrat;
+	background-color: #fff;
+	text-align: right;
+	height: 19px;
+	margin: 5px 10px 10px 10px;
+	padding: 5px;
+	border-radius: 10px;
+	flex-grow: 0;
+}
+
+#templateDisplay{
+	width: 35%;
+}
+
+#xValueDisplay{
+	width: 12%;
+}
+
+.delete.calcButton{
+	width: 15%;
+	height: 19px;
+	padding: 5px;
+	margin: 5px 10px 9px 0px;
+}
+
+#calcDisplayContainer > p > p{
+	width: 19px;
+	margin: 0px 0px 10px 0px;
+}
+
+#calcDisplayContainer > p{
+	flex-shrink: 0;
+	margin: 10px -5px 0px 10px;
+}
+
+#calcDisplayContainer{
+	flex-wrap: wrap;
+}
+
+div.calcButtonsContainer{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 0px 10px 0px 10px;
+}
+
+#selectionElement{
+	width: 100%;
+}
+
+#templateText{
+	/* margin-right: -10px; */
+}
+
+div.calcButton{
+	width: 23.5%;
+	height: 40px;
+	text-align: center;
+	border: 1px solid yellow;
+	border-radius: 15px;
+	margin-bottom: 9px;
+	cursor: default;
+	background-color: #dadada;
+	transition: all .75s cubic-bezier(.47,0,.74,.71);
+}
+
+.specialButton > p{
+	margin-top: 10px;
+}
+
+div.calcButton:hover, div.calcButton:focus, div.calcButton:active{
+	background-color: cyan;
+	transition: all .75s linear;
+}
+
+@media screen and (max-width: 1400px) and (min-width: 1300px) {
+	div.container{
+		width: 40vw
+	}
+	div.calculator{
+		width: 35vw;
+	}
+	
+}
+
+@media screen and (max-width: 1300px) and (min-width: 700px) {
+	div.container{
+		width: 48vw
+	}
+	div.calculator{
+		width: 42vw;
+	}
+}

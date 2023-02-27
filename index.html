@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <title>Template Calculator</title>
+</head>
+<body>
+    <div draggable="true" id="mainContainer">
+        <div class="container calcContainer">
+          <h1 class="title">Template Calculator</h1>
+          <h2 class="author" align="right">by WaysideBaker57</h2>
+          <div class="calculator">
+            <div style="display: flex" id="calcDisplayContainer">
+              <p id="selectionElement">Selected: <span id="selection">selection</span></p>
+              <p id="templateText">Template:</p>
+              <div class="display" id="templateDisplay" onclick="changeSelection('template')"></div>
+              <p>x:</p>
+              <div class="display" id="xValueDisplay" onclick="changeSelection('x')"></div>
+              <div class="delete calcButton">
+                <p
+                  style="margin-top: 2px"
+                  onclick="deleteLast()"
+                  ondblclick="clearAll()"
+                >
+                  <-
+                </p>
+              </div>
+            </div>
+            <div class="calcButtonsContainer">
+              <div class="calcButton" onclick="updateDisplay(1)"><p>1</p></div>
+              <div class="calcButton" onclick="updateDisplay(2)"><p>2</p></div>
+              <div class="calcButton" onclick="updateDisplay(3)"><p>3</p></div>
+              <div class="calcButton" onclick="multipliedBy()"><p>*</p></div>
+              <div class="calcButton" onclick="updateDisplay(4)"><p>4</p></div>
+              <div class="calcButton" onclick="updateDisplay(5)"><p>5</p></div>
+              <div class="calcButton" onclick="updateDisplay(6)"><p>6</p></div>
+              <div class="calcButton" onclick="totalOf()"><p>+</p></div>
+              <div class="calcButton" onclick="updateDisplay(7)"><p>7</p></div>
+              <div class="calcButton" onclick="updateDisplay(8)"><p>8</p></div>
+              <div class="calcButton" onclick="updateDisplay(9)"><p>9</p></div>
+              <div class="calcButton" onclick="subtractedBy()"><p>-</p></div>
+              <div class="calcButton" onclick="point()"><p>.</p></div>
+              <div class="calcButton" onclick="updateDisplay(0)"><p>0</p></div>
+              <div class="calcButton" onclick="dividedBy()"><p>/</p></div>
+              <div class="calcButton" onclick="solve()"><p>=</p></div>
+              <div class="calcButton specialButton" onclick="updateDisplay('x')"><p>x</p></div>
+              <div class="calcButton specialButton" onclick="pi()">
+                <p>&pi;</p>
+              </div>
+              <div class="calcButton specialButton" onclick="raiseToPower()">
+                <p>x<sup>2</sup></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <h2 class="historyHeading">History</h2>
+          <hr style="margin: 5px auto; width: 95%" />
+        </div>
+      </div>
+      <script src="./js/main.js"></script>
+</body>
+</html>
