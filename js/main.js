@@ -148,7 +148,7 @@ function replaceX() {
 	for (let i; xIndex > 0; ) {
 		if (xIndex === 0) {
 			expression = expression.replace("x", xValue);
-		} else if (Number(expression[xIndex]) - 1 === false) {
+		} else if (Number(expression[xIndex - 1]) === NaN) {
 			expression = expression.replace("x", ` * ${xValue}`);
 		}
 		xIndex = expression.indexOf("x");
