@@ -61,6 +61,11 @@ div.calculator{
 	width: 12%;
 }
 
+#answerDisplay{
+	width: 100%;
+	margin-top: 0px;
+}
+
 .delete.calcButton{
 	width: 15%;
 	height: 19px;

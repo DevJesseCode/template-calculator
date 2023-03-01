@@ -2,9 +2,11 @@
 
 const templateDisplay = document.getElementById("templateDisplay");
 const xValueDisplay = document.getElementById("xValueDisplay");
+const ansDisplay = document.getElementById("answerDisplay");
 const warn = {
 	operatorsInX: () => alert("You may not use operators in the x input box."),
 	noSelection: () => alert('Make a selection by clicking on either the "template" or "x" input box!'),
+	invalidInputX: () => alert(`You may not input "x" in the x-value display.`)
 };
 let selection = document.getElementById("selection").innerHTML;
 let expression;
@@ -14,12 +16,28 @@ function changeSelection(value) {
 	document.getElementById("selection").innerHTML = selection;
 }
 
+function isOperator(value) {
+	if (value === "*" || value === "/" || value === "+" || value === "-") {
+		return true;
+	} else {
+		return false
+	};
+};
+
 function updateDisplay(value) {
 	if (selection === "template") {
+		let lastCharacter = templateDisplay.innerHTML[templateDisplay.innerHTML.length - 1];
+		if (isOperator(lastCharacter)) {
+			templateDisplay.innerHTML += " ";
+		};
 		templateDisplay.innerHTML += value;
 		expression = templateDisplay.innerHTML;
 	} else if (selection === "x") {
-		xValueDisplay.innerHTML += value
+		if (value === "x") {
+			warn.invalidInputX()
+		} else {
+			xValueDisplay.innerHTML += value;
+		}
 	} else {
 		warn.noSelection();
 	}
@@ -145,13 +163,31 @@ function replaceX() {
 	expression = templateDisplay.innerHTML;
 	let xIndex = expression.indexOf("x");
 	let xValue = Number(xValueDisplay.innerHTML);
-	for (let i; xIndex > 0; ) {
-		if (xIndex === 0) {
+	let xInstances = 0;
+	for (let i = 0; i < expression.length; i++) {
+		if (expression[i] === "x") {
+			xInstances++
+		};
+	};
+	for (let i = 1; i <= xInstances; i++) {
+		if (expression[expression.indexOf("x") - 1] !== " ") {
+			if (expression[expression.indexOf("x") - 1] === false) {
+				expression = expression.replace("x", xValue);
+				console.log(expression);
+			} else {
+				expression = expression.replace("x", ` * ${xValue}`);
+				console.log(expression);
+			};
+		};
+		if (expression[expression.indexOf("x") - 1] === " ") {
 			expression = expression.replace("x", xValue);
-		} else if (Number(expression[xIndex - 1]) === NaN) {
-			expression = expression.replace("x", ` * ${xValue}`);
-		}
-		xIndex = expression.indexOf("x");
-	}
+			console.log(expression);
+		};
+	};
+	console.log(expression);
 	return expression;
+}
+
+function solve() {
+	ansDisplay.innerHTML = eval(replaceX());
 }
